@@ -19,7 +19,7 @@ import csv
 class City:
     def __init__(self, name, lat, lon):
         self.name = name
-        self.lat = float(lat)
+        self.lat = float(lat) #changed to float to make the test pass, it printed fine before this change
         self.lon = float(lon)
 
     def __repr__(self):
@@ -32,7 +32,7 @@ def cityreader(cities=[]):
     with open('cities.csv', 'r') as csv_file:
         reader = csv.DictReader(csv_file)
 
-        #adds just the name, lattiude and longitude for every city and makes a new instance for each one via the City class
+        #adds just the name, latitude and longitude to the cities array and makes a new instance for each one via the City class
         for line in reader:
             cities.append(City(line["city"], line["lat"], line["lng"]))
     
